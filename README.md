@@ -75,3 +75,10 @@ Para rodar o código pelo terminal:
 Ou apenas dando 2 cliques no executável. 
 
 
+## Rodar o programa na inicialização do sistema operacional:
+
+    sh compile
+
+É utilizado crontab do **usuário**, **systemd** e **~/.config/startup** no ubuntu.
+
+
