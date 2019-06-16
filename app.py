@@ -25,22 +25,25 @@ def execute_command(command)-> list:
         messagebox.showinfo('terminal output', parse_terminal_return(terminal_output.stdout.readlines()))
 
     
-def shutdown() -> int:
-    msg = 'Shutdown starting ... '
-    command = 'sudo shutdown -h now'
-
-def restart() -> int:
-    msg = 'Restarting computer ...'
-    command = "sudo shutdown -r now"
+def shutdown():
+    command = 'pkexec shutdown -h now'
+    messagebox.showinfo('shutdown', 'Shutdown starting ... ')
+    time.sleep(1)
+    os.system(command)
 
 
+def restart():
+    command = "pkexec shutdown -r now"
+    messagebox.showinfo('restarting', 'Restarting computer ...')
+    time.sleep(1)
+    os.system(command)
+    
 
 def terminal():
     input_command = Entry(window,width=10)
     input_command.grid(column=1, row=0)
     run = Button(window, text="run", command=lambda: execute_command(input_command.get()))
     run.grid(column=2, row=0)
-
 
 
 window = Tk()
