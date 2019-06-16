@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['app.py'],
+a = Analysis(['SystemManagement.py'],
              pathex=['/home/tarcisio/Projects/Vectra-application'],
              binaries=[],
              datas=[],
@@ -27,7 +27,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,
           [],
-          name='app',
+          name='SystemManagement',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
