@@ -26,3 +26,29 @@ Deve ser indicado para qual distribuição o projeto foi feito, e como configur�
 
 Entregar até 17/6/19 às 14h.
 
+# Requiriments:
+manually:
+
+    # apt-get
+    sudo apt install python3-gi python3-tk
+
+    # pip
+    sudo pip3 install pyinstaller
+
+    # dnf
+    sudo dnf install python3-tk
+
+via sh:
+    
+    sh requeriments.sh
+
+
+# Compilation:
+    
+manually:
+
+    pyinstaller --onefile app.spec
+
+via sh:
+
+    sh compile.sh
