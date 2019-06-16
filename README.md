@@ -1,4 +1,9 @@
-# Vectra-application
+# SystemManagement
+<img src="assets/program.png">
+
+É um sistema gerencial para desligar, reiniciar e rodar comandos no terminal.
+
+Feito para seleção da vaga de analista de desenvolvimento na vectra.
 
 ## Setup
 
@@ -77,8 +82,9 @@ Ou apenas dando 2 cliques no executável.
 
 ## Rodar o programa na inicialização do sistema operacional:
 
-    sh compile
+    sh compile.sh
 
-É utilizado crontab do **usuário**, **systemd** e **~/.config/startup** no ubuntu.
+É utilizado **crontab** do usuário, **systemd** e **~/.config/startup** no ubuntu.
 
+o script compile.sh irá compilar o código fonte python e irá salvar o arquivo ELF compilado dentro do diretório **/usr/bin/**.
 
