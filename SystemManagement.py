@@ -20,7 +20,7 @@ def execute_command(command)-> list:
                                          stderr=subprocess.PIPE)
     err = terminal_output.stderr.readlines()
     if(err):
-        messagebox.showinfo('terminal error', parse_terminal_return(err))
+        messagebox.showerror('terminal error', parse_terminal_return(err))
     else:
         messagebox.showinfo('terminal output', parse_terminal_return(terminal_output.stdout.readlines()))
 
