@@ -1,4 +1,4 @@
-Description=GIVE_YOUR_SERVICE_A_DESCRIPTION
+Description=SystemManagement
 
 Wants=network.target
 After=syslog.target network-online.target

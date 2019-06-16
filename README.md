@@ -63,7 +63,7 @@ Entregar até 17/6/19 às 14h.
     
 *compilar manualmente:*
 
-    pyinstaller --onefile app.spec
+    pyinstaller --onefile SystemManagement.spec
 
 *via sh:*
 
