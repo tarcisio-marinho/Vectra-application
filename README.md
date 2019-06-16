@@ -1,5 +1,12 @@
 # Vectra-application
 
+## Setup
+
+    SO: Ubuntu 17.10
+    Linguagem de Programação: Python3
+    Interface Gráfica: Tkinter
+
+## Objetivos:
 
 Criar um menu com interface gráfica, que deve ser aberto na inicialização do SO Linux (distros .DEB (Ubuntu, Linux Mint) / .RPM (RedHat, CentOS, Fedora, etc))
 
@@ -26,8 +33,8 @@ Deve ser indicado para qual distribuição o projeto foi feito, e como configur�
 
 Entregar até 17/6/19 às 14h.
 
-# Requiriments:
-manually:
+## Requisitos:
+*instalar manualmente:*
 
     # apt-get
     sudo apt install python3-gi python3-tk
@@ -38,17 +45,18 @@ manually:
     # dnf
     sudo dnf install python3-tk
 
-via sh:
+*via sh:*
     
     sh requeriments.sh
 
 
-# Compilation:
+## Compilação do código:
     
-manually:
+*instalar manualmente:*
 
     pyinstaller --onefile app.spec
 
-via sh:
+*via sh:*
 
     sh compile.sh
+

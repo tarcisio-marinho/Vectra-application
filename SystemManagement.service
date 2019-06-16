@@ -1,0 +1,12 @@
+[Unit]
+Description=SystemManagement
+After=multi-user.target
+Conflicts=getty@tty1.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/SystemManagement
+StandardInput=tty-force
+
+[Install]
+WantedBy=multi-user.target

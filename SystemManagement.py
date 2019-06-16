@@ -1,0 +1,86 @@
+from tkinter import Tk, Label, Entry, Button, PhotoImage, LEFT, BOTTOM, scrolledtext, INSERT, messagebox, Menu
+import sys, os, subprocess, time
+
+
+def resource_path(relative_path)-> str:
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+
+def parse_terminal_return(output):
+    return_string = ''
+    for line in output:
+        return_string += line.decode("utf-8") 
+
+    return return_string
+
+def execute_command(command)-> list:
+    terminal_output = subprocess.Popen(command, shell=True, stdin=subprocess.PIPE,
+                                         stdout=subprocess.PIPE,
+                                         stderr=subprocess.PIPE)
+    err = terminal_output.stderr.readlines()
+    if(err):
+        messagebox.showinfo('terminal error', parse_terminal_return(err))
+    else:
+        messagebox.showinfo('terminal output', parse_terminal_return(terminal_output.stdout.readlines()))
+
+    
+def shutdown():
+    command = 'pkexec shutdown -h now'
+    messagebox.showinfo('shutdown', 'Shutdown starting ... ')
+    time.sleep(1)
+    os.system(command)
+
+
+def restart():
+    command = "pkexec shutdown -r now"
+    messagebox.showinfo('restarting', 'Restarting computer ...')
+    time.sleep(1)
+    os.system(command)
+    
+
+def terminal():
+    input_command = Entry(window,width=10)
+    input_command.grid(column=1, row=0)
+    run = Button(window, text="run", command=lambda: execute_command(input_command.get()))
+    run.grid(column=2, row=0)
+
+def show_menu():
+    msg = '''SystemManagement
+É uma aplicação desenvolvida para a seleção de analista de desenvolvimento na empresa vectra.
+Desenvolvido por Tarcísio Marinho.
+Documentação: https://github.com/tarcisio-marinho/Vectra-application
+    '''
+
+    messagebox.showinfo('about', msg)
+
+
+
+window = Tk()
+window.title("SystemManagement")
+window.geometry('500x300')
+
+menu = Menu(window)
+menu.add_command(label='About', command=show_menu)
+window.config(menu=menu)
+ 
+shutdown_button = Button(window, command = shutdown)
+logo = PhotoImage(file = resource_path('assets/shutdown.png')).subsample(10, 10)
+shutdown_button.config(image=logo)
+shutdown_button.grid(column=10, row=100)
+
+restart_button = Button(window, command=restart)
+restart_logo = PhotoImage(file = resource_path('assets/restart.png')).subsample(9, 9)
+restart_button.config(image = restart_logo)
+restart_button.grid(column=50, row=100)
+
+
+terminal_button = Button(window, command=terminal)
+terminal_logo = PhotoImage(file = resource_path('assets/terminal.png')).subsample(5, 5)
+terminal_button.config(image = terminal_logo)
+terminal_button.grid(column=70, row=100)
+
+
+
+
+window.mainloop()
