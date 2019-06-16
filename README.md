@@ -39,6 +39,13 @@ Deve ser indicado para qual distribuição o projeto foi feito, e como configur�
 
 Entregar até 17/6/19 às 14h.
 
+
+## Clonar o código:
+
+    git clone https://github.com/tarcisio-marinho/Vectra-application.git
+    cd Vectra-application/
+
+
 ## Requisitos:
 
 É necessário ter na máquina instalado **Python3**, **pip3** (python package manager), **Tkinter** (interface gráfica).
@@ -58,10 +65,6 @@ Entregar até 17/6/19 às 14h.
     
     sh requeriments.sh
 
-## Clonar o código:
-
-    git clone https://github.com/tarcisio-marinho/Vectra-application.git
-    cd Vectra-application/
 
 ## Compilação do código:
     
