@@ -1,12 +1,14 @@
-[Unit]
-Description=SystemManagement
-After=multi-user.target
-Conflicts=getty@tty1.service
+Description=GIVE_YOUR_SERVICE_A_DESCRIPTION
+
+Wants=network.target
+After=syslog.target network-online.target
 
 [Service]
 Type=simple
 ExecStart=/usr/bin/SystemManagement
-StandardInput=tty-force
+Restart=on-failure
+RestartSec=10
+KillMode=process
 
 [Install]
 WantedBy=multi-user.target

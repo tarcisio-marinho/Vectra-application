@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=SystemManagement
+Exec=/usr/bin/SystemManagement
+Icon=
+Comment=SystemManagement
+X-GNOME-Autostart-enabled=true
