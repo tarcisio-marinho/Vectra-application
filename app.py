@@ -1,4 +1,4 @@
-from tkinter import Tk, Label, Entry, Button, PhotoImage, LEFT, BOTTOM, scrolledtext, INSERT, messagebox
+from tkinter import Tk, Label, Entry, Button, PhotoImage, LEFT, BOTTOM, scrolledtext, INSERT, messagebox, Menu
 import sys, os, subprocess, time
 
 
@@ -45,10 +45,23 @@ def terminal():
     run = Button(window, text="run", command=lambda: execute_command(input_command.get()))
     run.grid(column=2, row=0)
 
+def show_menu():
+    msg = '''Aplicação desenvolvida para seleção de analista na vectra.
+Desenvolvido por Tarcísio Marinho.
+Documentação: https://github.com/tarcisio-marinho/Vectra-application
+    '''
+
+    messagebox.showinfo('about', msg)
+
+
 
 window = Tk()
 window.title("Vectra app")
 window.geometry('500x500')
+
+menu = Menu(window)
+menu.add_command(label='About', command=show_menu)
+window.config(menu=menu)
  
 shutdown_button = Button(window, command = shutdown)
 logo = PhotoImage(file = resource_path('assets/shutdown.png')).subsample(10, 10)
