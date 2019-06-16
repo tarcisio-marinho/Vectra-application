@@ -1,5 +1,5 @@
 from tkinter import Tk, Label, Entry, Button, PhotoImage, LEFT, BOTTOM, scrolledtext, INSERT, messagebox
-import sys, os, subprocess
+import sys, os, subprocess, time
 
 
 def resource_path(relative_path)-> str:
@@ -22,24 +22,23 @@ def execute_command(command)-> list:
     if(err):
         messagebox.showinfo('terminal error', parse_terminal_return(err))
     else:
-        messagebox.showinfo('terminal Output', parse_terminal_return(terminal_output.stdout.readlines()))
+        messagebox.showinfo('terminal output', parse_terminal_return(terminal_output.stdout.readlines()))
 
     
 def shutdown() -> int:
-    pass
+    msg = 'Shutdown starting ... '
+    command = 'sudo shutdown -h now'
 
 def restart() -> int:
-    pass
+    msg = 'Restarting computer ...'
+    command = "sudo shutdown -r now"
+
+
 
 def terminal():
-
-
-    txt = Entry(window,width=10)
-    txt.grid(column=1, row=0)
-
-    
-    
-    run = Button(window, text="run", command=lambda: execute_command(txt.get()))
+    input_command = Entry(window,width=10)
+    input_command.grid(column=1, row=0)
+    run = Button(window, text="run", command=lambda: execute_command(input_command.get()))
     run.grid(column=2, row=0)
 
 
@@ -51,18 +50,18 @@ window.geometry('500x500')
 shutdown_button = Button(window, command = shutdown)
 logo = PhotoImage(file = resource_path('assets/shutdown.png')).subsample(10, 10)
 shutdown_button.config(image=logo)
-shutdown_button.grid(column=10, row=200)
+shutdown_button.grid(column=10, row=100)
 
 restart_button = Button(window, command=restart)
 restart_logo = PhotoImage(file = resource_path('assets/restart.png')).subsample(9, 9)
 restart_button.config(image = restart_logo)
-restart_button.grid(column=30, row=200)
+restart_button.grid(column=30, row=100)
 
 
 terminal_button = Button(window, command=terminal)
 terminal_logo = PhotoImage(file = resource_path('assets/terminal.png')).subsample(5, 5)
 terminal_button.config(image = terminal_logo)
-terminal_button.grid(column=50, row=200)
+terminal_button.grid(column=50, row=100)
 
 
 
