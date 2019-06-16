@@ -61,7 +61,7 @@ Entregar até 17/6/19 às 14h.
 ## Clonar o código:
 
     git clone https://github.com/tarcisio-marinho/Vectra-application.git
-    cd Vectra-Application/
+    cd Vectra-application/
 
 ## Compilação do código:
     
